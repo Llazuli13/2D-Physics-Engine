@@ -1,4 +1,7 @@
 /*jslint browser */
+var gObjectNum = 0;
+
+
 function userControl(event) {
   var keycode;
   var width = gEngine.Core.mWidth;
@@ -13,26 +16,28 @@ function userControl(event) {
   }
   
   if (keycode === 70) { //f
-    //create new Rectangle at random postion
-    context.strokeRect(Math.random() * width * 0.8,
-    // x position of centre
-    Math.random() * height * 0.8,
-    // y position of centre
-    Math.random() * 30 + 10, Math.random() * 30 +10);
-    //width and height location
+    var r1 = new Rectangle(new Vec2(
+      Math.random()*width*0.8, 
+      Math.random()*height*0.8),
+      Math.random() * 30+10,
+      Math.random() * 30+10);
   }
   if (keycode ===71) { //g
-  //create new Circle at rnaodm position
-  context.beginPath();
-  //draw a circle
-  context.arc(Math.random() * width * 0.8,
-  // x position of centre
-  Math.random() * height * 0.8,
-  // y position of centre
-  Math.random() *30 +10, 0, Math.PI * 2, true);
-  //radius
-  context.closePath();
-  context.stroke()
+    var r1 = new Circle(new Vec2(
+      Math.random()*width*0.8, 
+      Math.random()*height*0.8),
+      Math.random() * 10+20);
+  }
+  if (keycode <= 48 && keycode <= 57) { //number
+    if (keycode - 48 < gEngine.Core.mAllObjects.length)
+    gObjectNum = keycode - 48;
+  }
+  if (keycode === 38) { //up arrow
+    if (gObjectNum > 0)
+    gObjectNum--;
+  }
+  if (keycode === 40) { //up arrow
+    if (gObjectNum < gEngine.Core.mAllObjects.length-1)
+    gObjectNum++;
   }
 }
-

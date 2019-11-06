@@ -39,7 +39,7 @@ Vec2.prototype.rotate = function (center, angle) {
   return new Vec2(r[0], r[1]);
 };
 
-Vec2.prototype.normalise = function () {
+Vec2.prototype.normalize = function () {
   var len = this.length();
   if (len > 0) {
     len = 1 / len;
