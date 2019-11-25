@@ -47,27 +47,27 @@ var runGameLoop = function () {
 
 
 
-
-
 var updateUIEcho = function () {
   document.getElementById("uiEchoString").innerHTML = 
 "<p><b>Selected Object:</b>:</p>" +
       "<ul style=\"margin:-10px\">" + 
       "<li>Id: " + gObjectNum + "</li>" +
       "<li>Center: " + mAllObjects[gObjectNum].mCenter.x. 
-      toPrecision(3) + "," + 
-      mAllObjects[gObjectNum].mCenter.y.toPrecision(3) + "</li>"  + 
-      "<li>Angle: " + mAllObjects[gObjectNum].mAngle.toPrecision(3) + "</li>"  +
+toPrecision(3) + "," + 
+      mAllObjects[gObjectNum].mCenter.y.toPrecision(3) + "</li>" +
+      "<li>Angle: " + mAllObjects[gObjectNum].mAngle.
+      toPrecision(3) + "</li>"  +
       "</ul> <hr>" + "<p><b>Control</b>: of selected object</p>" +
       "<ul style=\"margin:-10px\">" + 
       "<li><b>Num</b> or <b>Up/Down Arrow</b>: SelectObject</li>" +
       "<li><b<WASD</b> + <b>QE</b>: Position [Move + Rotate] </li>" +
       "</ul> <hr>" + 
-      "<b>F/G</b>: Spawn [Rectangle/Circle] at random location" + 
+      "<b>F/G</b>: Spawn [Rectangle/Circle] at random location" +
       "<p><b>H</b>: Fix object</p>" +
       "<p><b>R</b>: Reset System</p>" +
-      "<hr>";
+       "<hr>";
 };
+
 
 var update = function () {
   var i;
