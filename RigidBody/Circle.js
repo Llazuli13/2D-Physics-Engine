@@ -4,7 +4,7 @@ var Circle = function (center, radius, fix) {
   this.mRadius = radius;
   // The start point of line in circle.
   this.mStartpoint =new Vec2(center.x, center.y - radius);
-  this.mFix = fix;
+  this.mBoundRadius = radius;
 };
 
 var prototype = Object.create(RigidShape.prototype);

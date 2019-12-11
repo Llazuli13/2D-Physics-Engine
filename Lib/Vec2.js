@@ -33,7 +33,7 @@ Vec2.prototype.rotate = function (center, angle) {
   var x = this.x - center.x;
   var y = this.y - center.y;
   r[0] = x * Math.cos(angle) - y * Math.sin(angle);
-  r[1] = [x] * Math.sin(nagle) + y * Math.cos(angle);
+  r[1] = [x] * Math.sin(angle) + y * Math.cos(angle);
   r[0] += center.x;
   r[1] += center.y;
   return new Vec2(r[0], r[1]);

@@ -33,12 +33,14 @@ var runGameLoop = function () {
   mElapsedTime = mCurrentTime - mPreviousTime;
   mPreviousTime = mCurrentTime;
   mLagTime += mElapsedTime;
-  //Update the game the appropriate number of time.
+  //Update the game the appropriate number of times.
   //Update only the milliseconds per frame.
-  //If the lag is greater then update frames, update until the logic has caught up.
+  //If the lag is greater than update frames, update until the logic has caught up.
   while(mLagTime >= kMPF) {
     mLagTime -= kMPF;
+    gEngine.Physics.collision();
     update();
+    
   }
   updateUIEcho();
   draw();
@@ -62,7 +64,7 @@ toPrecision(3) + "," +
       "<li><b>Num</b> or <b>Up/Down Arrow</b>: SelectObject</li>" +
       "<li><b<WASD</b> + <b>QE</b>: Position [Move + Rotate] </li>" +
       "</ul> <hr>" + 
-      "<b>F/G</b>: Spawn [Rectangle/Circle] at random location" +
+      "<b>F/G</b>: Spawn [Rectangle/Circle] at selected object" +
       "<p><b>H</b>: Fix object</p>" +
       "<p><b>R</b>: Reset System</p>" +
        "<hr>";
@@ -77,7 +79,7 @@ var update = function () {
 };
 //iterates through and invokes the corresponding draw functions
 //for each of the shape objects in the list.
-//the currently selected object will be drawn in red, the rest blue.
+//the currently selected object will be drawn in red, the rest in blue.
 var draw = function () {
   mContext.clearRect(0, 0, mWidth, mHeight);
   var i;

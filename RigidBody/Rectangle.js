@@ -1,9 +1,9 @@
 var Rectangle = function (center, width, height, fix) {
   RigidShape.call(this, center);
-  this.mFix = fix;
   this.mType = "Rectangle";
   this.mWidth = width;
   this.mHeight = height;
+  this.mBoundRadius = Math.sqrt(width*width + height*height)/2;
   this.mVertex = [];
   this.mFaceNormal = [];
   //0--TopLeft;1--TopRight;2--BottomRight;3--BottomLeft
